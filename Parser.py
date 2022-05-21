@@ -58,14 +58,15 @@ class Parser:
                         variable[default] = ""
                     elif(i == 3):
                         if(isTs):
-                            gelen = self.tsCheck(default[0:-1])
+                            gelen = self.tsCheck(default)
                             if(gelen):
-                                variable[line[1]] = default[0:-1]
+                                variable[line[1]] = default
+                                self.detectedVarialbes.append(variable[line[1]])
                             else:
                                 error = ""
                                 for x in line:
                                     error += x+" "
-                                print("Syntax Error :" , error , "HANDLE [",default[0:-1],"]")
+                                print("Syntax Error :" , error , "HANDLE [",default,"]")
                         elif(isOs):
                             self.osCheck(default)
                         elif(isDy):
@@ -74,8 +75,10 @@ class Parser:
                         print("Sytax Error :" )
                     
         
-    def tsCheck(self,variable):
+    def tsCheck(self,variable):        
         isTrue = False
+        if(variable[0] == "0"):
+            return isTrue
         for i in variable:
             if(-1 != self.tsl.find(i)):
                 isTrue = True
