@@ -1,0 +1,7 @@
+
+Parser:
+  + 65. satir falan 
+  + satir sonlarinda \n ifadesi var onu kaldirmam lazim
+  + daha komplex hata vermem lazim 
+  + ts ve os icin basinda ve sonunda 0 ve . olmaz
+  
